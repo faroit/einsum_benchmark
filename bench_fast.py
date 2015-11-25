@@ -1,5 +1,6 @@
 import numpy as np
 import timeit
+from parafac_fast import parafac
 
 eps = 1e-10
 
@@ -21,9 +22,11 @@ def nnrandn(shape):
 A = nnrandn((1000, 50))
 B = nnrandn((1000, 50))
 
+factors = [A, B]
+
 
 def run():
-    V = np.einsum('ak,bk->ab', A, B)
+    V = parafac(factors)
     return V
 
 times = timeit.Timer(run).timeit(number=100)

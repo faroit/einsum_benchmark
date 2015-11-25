@@ -1,7 +1,13 @@
-using TensorOperations, IndexNotation
+using TensorOperations
 
-A = randn(40, 40, 100, 10)
-X = randn(40, 10)
-Z = randn(40, 10)
+A = randn(1000, 50)
+B = randn(1000, 50)
+C = randn(100, 50)
 
-V[l"a,b,f,t,c"] = A[l"a,b,f,j"]*X[l"t,j"]*Z[l"c,j"]
+V=zeros(100, 100, 100)
+
+tic()
+for i = 1:100
+    @tensor V[a,b] := A[a,k]*B[b,k]
+end
+toc()
