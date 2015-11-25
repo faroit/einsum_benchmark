@@ -1,10 +1,7 @@
 using TensorOperations
 
-A = randn(1000, 50)
-B = randn(1000, 50)
-C = randn(100, 50)
-
-V=zeros(100, 100, 100)
+A = randn(2000, 100)
+B = randn(2000, 100)
 
 tic()
 for i = 1:100

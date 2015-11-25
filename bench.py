@@ -18,8 +18,8 @@ def nnrandn(shape):
     return np.abs(np.random.randn(*shape))
 
 
-A = nnrandn((1000, 50))
-B = nnrandn((1000, 50))
+A = nnrandn((2000, 100))
+B = nnrandn((2000, 100))
 
 
 def run():
