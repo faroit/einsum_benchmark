@@ -1,5 +1,5 @@
-numpy
-opt_einsum
+numpy==1.11.0
+-e git+https://github.com/dgasmith/opt_einsum.git@fe11e42182f1ff330f2ba800aedb9b7423b9e55e#egg=opt_einsum
 matplotlib
 pandas
 seaborn
