@@ -42,10 +42,10 @@ end
 
 outfile = open("julia.csv", "w")
 
-for j in 10:10:80
-  write(outfile, join(("parafac2", j, timeit(j, 3, parafac2)), "\t"), "\n")
-  write(outfile, join(("parafac5", j, timeit(j, 3, parafac5)), "\t"), "\n")
-  write(outfile, join(("commonfate", j, timeit(j, 3, commonfate)), "\t"), "\n")
+for j in 10:10:60
+  write(outfile, join(("parafac2", j, timeit(j, 3, parafac2)), " "), "\n")
+  write(outfile, join(("parafac5", j, timeit(j, 3, parafac5)), " "), "\n")
+  write(outfile, join(("commonfate", j, timeit(j, 3, commonfate)), " "), "\n")
 end
 
 close(outfile)

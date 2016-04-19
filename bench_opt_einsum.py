@@ -2,6 +2,7 @@ from __future__ import print_function
 import numpy as np
 import timeit
 import functools
+import opt_einsum
 import csv
 
 
@@ -42,7 +43,7 @@ with open('py_opt.csv', 'wb') as csvfile:
         quotechar='|', quoting=csv.QUOTE_MINIMAL
     )
 
-    for i in range(10, 80, 10):
+    for i in range(10, 70, 10):
         benchwriter.writerow(['parafac2', i, bench(i, 3, parafac2)])
         benchwriter.writerow(['parafac5', i, bench(i, 3, parafac5)])
         benchwriter.writerow(['commonfate', i, bench(i, 3, commonfate)])

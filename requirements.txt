@@ -1,2 +1,5 @@
 numpy
 opt_einsum
+matplotlib
+pandas
+seaborn
