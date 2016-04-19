@@ -1,2 +1,2 @@
 numpy
-parafac_fast
+opt_einsum

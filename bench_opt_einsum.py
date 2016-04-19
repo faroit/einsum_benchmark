@@ -9,7 +9,7 @@ def parafac2(n, r=10000):
     A = np.random.randn(n, r)
     B = np.random.randn(n, r)
 
-    return np.einsum('aj,bj->ab', A, B)
+    return opt_einsum.contract('aj,bj->ab', A, B)
 
 
 def parafac5(n, r=10):
@@ -19,7 +19,7 @@ def parafac5(n, r=10):
     D = np.random.randn(n, r)
     E = np.random.randn(n, r)
 
-    return np.einsum('aj,bj,cj,dj,ej->abcde', A, B, C, D, E)
+    return opt_einsum.contract('aj,bj,cj,dj,ej->abcde', A, B, C, D, E)
 
 
 def commonfate(n, r=10):
@@ -27,7 +27,7 @@ def commonfate(n, r=10):
     H = np.random.random((n, r))
     C = np.random.random((n, r))
 
-    return np.einsum('abfj,tj,cj->abftc', A, H, C)
+    return opt_einsum.contract('abfj,tj,cj->abftc', A, H, C)
 
 
 def bench(n, reps, func):
@@ -36,9 +36,9 @@ def bench(n, reps, func):
     ).timeit(number=reps) / reps
 
 
-with open('py.csv', 'wb') as csvfile:
+with open('py_opt.csv', 'wb') as csvfile:
     benchwriter = csv.writer(
-        csvfile, delimiter='\t',
+        csvfile, delimiter=' ',
         quotechar='|', quoting=csv.QUOTE_MINIMAL
     )
 
